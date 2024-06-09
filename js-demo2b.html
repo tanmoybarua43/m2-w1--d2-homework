@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>  
+<title>My Second Web Page</title>
+
+<link rel="stylesheet" href="demo.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+       $("#btn").click(function(event){
+        $('table').append('<caption></caption>');
+        $('table').append('<thead><tr id="showheading"></tr></thead>');
+        // heading th created
+        $('#showheading').append('<th></th>');
+        $('#showheading').append('<th></th>');
+        $('#showheading').append('<th></th>');
+        $('#showheading').append('<th></th>');
+        $('#showheading').append('<th></th>');
+        // tbody created
+        $('table').append('<tbody><tr id="showcalories"></tr></tbody>');
+        // tbody td created
+        $('#showcalories').append('<td></td>');
+        $('#showcalories').append('<td></td>');
+        $('#showcalories').append('<td></td>');
+        $('#showcalories').append('<td></td>');
+        $('#showcalories').append('<td></td>');
+        // tbody tr created
+        $('table tbody').append('<tr id="showfat"></tr>');
+        // tbody td created
+        $('#showfat').append('<td></td>');
+        $('#showfat').append('<td></td>');
+        $('#showfat').append('<td></td>');
+        $('#showfat').append('<td></td>');
+        $('#showfat').append('<td></td>');
+        // tfoot fat created
+        $('table').append('<tfoot><tr id="showven"></tr></tfoot>');
+        // tfoot td fat created
+        $('#showven').append('<td></td>');
+        $('#showven').append('<td></td>');
+        $('#showven').append('<td></td>');
+        $('#showven').append('<td></td>');
+        $('#showven').append('<td></td>');
+        $.getJSON('data.json', function(data) {
+            $('table caption').append(data.title);
+            // Table heading data
+            $('#showheading th:first-child').append(data.heading);
+            $('#showheading th:nth-child(2)').append(data.head1);
+            $('#showheading th:nth-child(3)').append(data.head2);
+            $('#showheading th:nth-child(4)').append(data.head3);
+            $('#showheading th:last-child').append(data.head4);
+            // Table body cal data
+            $('#showcalories td:first-child').append(data.subheadcal);
+            $('#showcalories td:nth-child(2)').append(data.cal1);
+            $('#showcalories td:nth-child(3)').append(data.cal2);
+            $('#showcalories td:nth-child(4)').append(data.cal3);
+            $('#showcalories td:last-child').append(data.cal4);
+            // Table body fat data
+            $('#showfat td:first-child').append(data.subheadfat);
+            $('#showfat td:nth-child(2)').append(data.fat1);
+            $('#showfat td:nth-child(3)').append(data.fat2);
+            $('#showfat td:nth-child(4)').append(data.fat3);
+            $('#showfat td:last-child').append(data.fat4);
+            // Table footer data
+            $('#showven td:first-child').append(data.subheadven);
+            $('#showven td:nth-child(2)').append(data.ven1);
+            $('#showven td:nth-child(3)').append(data.ven2);
+            $('#showven td:nth-child(4)').append(data.ven3);
+            $('#showven td:last-child').append(data.ven4);
+        });
+       });
+    });
+ </script>
+</head> 	
+<body>
+
+<div id="container">
+
+<header>My Web Site Brand</header>
+<nav>
+	<ul>
+    <li><a href="js-demo2.html">Home</a></li>
+    <li><a href="js-demo2b.html">About</a></li>
+    <li><a href="js-demo2d.html">Gallery</a></li>
+    <li><a href="js-demo2c.html">Contact</a></li>
+	</ul>
+</nav>
+
+<main>
+  <h1>My Second Heading</h1>
+  <p>My Second paragraph.</p>
+
+  <table>
+    <!--<caption></caption>
+    <thead>
+        <tr id="showheading">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr id="showcalories">
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="showfat">
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr id="showven">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tfoot>-->
+    </table>
+
+    <input type = "button" id = "btn" value = "Load Data" style="margin-top:20px;" />
+</main>
+
+<footer>&copy; Copyright 2020</footer>
+
+</div>
+
+</body>
+</html>
